@@ -1,6 +1,4 @@
-#!/usr/bin/env node
+import handleResponseFromAPI from "./2-then.js";
 
-import getFullResponseFromAPI from './1-promise.js';
-
-console.log(getFullResponseFromAPI(true));
-console.log(getFullResponseFromAPI(false));
+const promise = Promise.resolve();
+handleResponseFromAPI(promise);
