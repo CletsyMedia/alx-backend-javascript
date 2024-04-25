@@ -1,4 +1,5 @@
 import ClassRoom from './0-classroom.js';
+
 function initializeRooms() {
   const rooms = [
     new ClassRoom(19),
