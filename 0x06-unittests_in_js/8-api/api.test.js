@@ -1,24 +1,19 @@
-const chai = require('chai');
-const chaiHttp = require('chai-http');
-const server = require('./api');
-const { expect } = chai;
+const request = require('request');
+const { expect } = require('chai');
 
-chai.use(chaiHttp);
+describe('Integration Testing', () => {
+  describe('GET /', () => {
+    it('Returns StatusCode: 200 | Body: Welcome to the payment system', (done) => {
+      const options = {
+        url: 'http://localhost:7865',
+        method: 'GET',
+      };
 
-describe('Index page', () => {
-  it('should return correct status code and message for GET /', (done) => {
-    chai.request(server)
-      .get('/')
-      .end((err, res) => {
-        expect(res).to.have.status(200);
-        expect(res.text).to.equal('Welcome to the payment system');
+      request(options, function (error, response, body) {
+        expect(response.statusCode).to.equal(200);
+        expect(body).to.equal('Welcome to the payment system');
         done();
       });
+    });
   });
-});
-
-// Additional tests can be added here for other routes or functionalities
-
-after(() => {
-  server.close(); // Close the server after all tests complete
 });
