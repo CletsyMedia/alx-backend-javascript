@@ -5,8 +5,8 @@
  * @returns {number} Rounded sum of a and b
  */
 function calculateNumber(a, b) {
-  firstInt = Math.round(a);
-  secondInt = Math.round(b);
+  const firstInt = Math.round(a);
+  const secondInt = Math.round(b);
   return firstInt + secondInt;
 }
 
